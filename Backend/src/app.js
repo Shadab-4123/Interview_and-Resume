@@ -1,4 +1,5 @@
 const express = require('express')
+const cookieParser = require('cookie-parser')
 
 const app = express()
 
@@ -8,6 +9,7 @@ const app = express()
 //  routes ko define karna ke beech mein middleware use karna zaroori hai,
 //  taki jab bhi koi request aaye toh uska body parse ho jaye aur hum usko easily access kar sakein. 
 app.use(express.json()) 
+app.use(cookieParser())
 
 
 // Importing and using routes
