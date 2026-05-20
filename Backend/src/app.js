@@ -1,5 +1,8 @@
 const express = require('express')
 const cookieParser = require('cookie-parser')
+const cors = require('cors')
+
+
 
 const app = express()
 
@@ -10,7 +13,10 @@ const app = express()
 //  taki jab bhi koi request aaye toh uska body parse ho jaye aur hum usko easily access kar sakein. 
 app.use(express.json()) 
 app.use(cookieParser())
-
+app.use(cors({
+    origin:'http://localhost:5173', // frontend ka URL
+    credentials:true // cookies ko allow karne ke liye
+}))
 
 // Importing and using routes
 const authRouter = require('./routes/auth.routes')
